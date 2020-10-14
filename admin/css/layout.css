@@ -11,6 +11,12 @@ body {
 }
 /* commons
 ----------------------------------------------- */
+
+
+.success{
+	background: green;
+	color: green;
+}
 .floatleft{float:left;}
 .logo img {
   margin-top: -15px;

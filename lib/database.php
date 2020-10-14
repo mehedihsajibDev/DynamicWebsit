@@ -40,7 +40,8 @@ Class Database{
      public function insert($query){
      	$insert_rows=$this->link->query($query) or die ($this->link->error.__LINE__);
      	if($insert_rows){
-      header("Location: index.php?msg=".urlencode('data insert sucessfully.'));
+     		return $insert_rows;
+      //header("Location: index.php?msg=".urlencode('data insert sucessfully.'));
         exit();
      	}
 
@@ -48,6 +49,29 @@ Class Database{
      		die("Error:(".$this->link->erno.")" .$this->link->error);
      	}
      }
+
+
+     // Update data
+ public function update($query){
+ $update_row = $this->link->query($query) or 
+   die($this->link->error.__LINE__);
+ if($update_row){
+  return $update_row;
+ } else {
+  return false;
+  }
+ }
+  
+// Delete data
+ public function delete($query){
+ $delete_row = $this->link->query($query) or 
+   die($this->link->error.__LINE__);
+ if($delete_row){
+   return $delete_row;
+ } else {
+   return false;
+  }
+ }
 
 }
 

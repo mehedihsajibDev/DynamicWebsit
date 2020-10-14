@@ -1,15 +1,6 @@
 <?php include 'inc/header.php'; ?>
 <?php include 'inc/slider.php'; ?>
 
-<?php include 'config/config.php'; ?>
-<?php  include 'lib/database.php';?>
-<?php include 'helpers/Formate.php';?>
-
-<?php
-   $db=new Database();
-   $fm=new Formate();
-  ?>
-
 <div class="contentsection template clear">
 	<div class="maincontent clear">
 <?php
@@ -38,13 +29,15 @@ $start_form=($page-1)*$per_page;
 		</div>
 		
 		
-		<img src="admin/upload/<?php echo $result['image']; ?>" alt="post.img" >
+		<img src="admin/<?php echo $result['image'];?>"alt="noimg"/>
+
 		<?php echo $fm->textshorten ($result['body'],100); ?>
 		<div class="readmore clear">
 			<a href="readmore.php?id=<?php echo  $result['id']; ?>">readmore</a>
 		</div>
 		
 	</div>
+
 <?php } ?>
 
 

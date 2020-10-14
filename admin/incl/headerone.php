@@ -1,3 +1,29 @@
+
+<?php
+ include '../lib/session.php'; 
+ Session::checkSession();
+
+?>
+
+
+<?php include '../config/config.php'; ?>
+<?php  include '../lib/database.php';?>
+<?php include '../helpers/Formate.php';?>
+
+<?php
+   $db=new Database();
+   $fm=new Formate();
+  ?>
+<?php
+ 
+  header("Cache-Control: no-cache, must-revalidate"); 
+  header("Pragma: no-cache"); 
+  header("Expires: Sat, 26 Jul 1997 05:00:00 GMT"); 
+  header("Cache-Control: max-age=2592000"); 
+
+?>
+
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -38,16 +64,27 @@
                     <img src="img/livelogo.png" alt="Logo" />
 				</div>
 				<div class="floatleft middle">
-					<h1>Training with live project</h1>
-					<p>www.trainingwithliveproject.com</p>
+					<h1>Programming hub</h1>
+					<p>www.mhmehedi.com</p>
 				</div>
+
+
                 <div class="floatright">
                     <div class="floatleft">
                         <img src="img/img-profile.jpg" alt="Profile Pic" /></div>
+
+                        <?php
+
+                         if(isset($_GET['action']) && $_GET['action']=="logout"){
+
+                            Session::destroy();
+                         }
+
+                        ?>
                     <div class="floatleft marginleft10">
                         <ul class="inline-ul floatleft">
                             <li>Hello Admin</li>
-                            <li><a href="#">Logout</a></li>
+                            <li><a href="?action=logout">Logout</a></li>
                         </ul>
                     </div>
                 </div>

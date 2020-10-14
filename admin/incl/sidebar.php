@@ -11,10 +11,28 @@
                             </ul>
                         </li>
 						
-                         <li><a class="menuitem">Update Pages</a>
+                         <li><a class="menuitem"> Pages</a>
+
                             <ul class="submenu">
-                                <li><a>About Us</a></li>
-                                <li><a>Contact Us</a></li>
+                                <li><a href="addpage.php">Add new page</a></li>
+                                <?php 
+
+                               $query="SELECT *FROM tbl_pages";
+                               $result=$db->select($query);
+                               if($result){
+
+                               while ($pages=$result->fetch_assoc()) {
+                                   # code...
+                               
+
+                                ?>
+                               
+
+                                <li><a href="openpage.php?pageid=<?php echo $pages['id'] ?>"> <?php echo $pages['name']; ?></a></li>
+                               <?php }} ?>
+                               
+
+                                <li><a href="contacts.php">Contact Us</a></li>
                             </ul>
                         </li>
                         <li><a class="menuitem">Category Option</a>

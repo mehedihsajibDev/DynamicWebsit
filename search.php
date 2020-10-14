@@ -1,14 +1,7 @@
 <?php include 'inc/header.php'; ?>
 <?php include 'inc/slider.php'; ?>
 
-<?php include 'config/config.php'; ?>
-<?php  include 'lib/database.php';?>
-<?php include 'helpers/Formate.php';?>
 
-<?php
-   $db=new Database();
-   $fm=new Formate();
-  ?>
 
 <div class="contentsection template clear">
 	<div class="maincontent clear">

@@ -1,14 +1,7 @@
 <?php include 'inc/header.php'; ?>
 <?php include 'inc/slider.php'; ?>
 
-<?php include 'config/config.php'; ?>
-<?php  include 'lib/database.php';?>
-<?php include 'helpers/Formate.php';?>
 
-<?php
-   $db=new Database();
-   $fm=new Formate();
-   ?>
    <?php 
         if(!isset($_GET['id'])||$_GET['id']==NULL){
         	//header("Location:error.php");
@@ -33,7 +26,7 @@
 		<div class="date clear">
 			<h5><?php echo $fm->formDate($result['date'])?>,By <a href="#"><?php echo $result['author']; ?> </a> </h5>
 		</div>
-		<img src="admin/upload/<?php echo $result['image']; ?>" alt="post.img" >
+		<img src="admin/<?php echo $result['image']; ?>" alt="post.img" >
 		<?php echo $result['body']; ?>
 		<div class="readmore clear">
 			
@@ -52,7 +45,7 @@
 
 	<div class="div1">
 		<h4><a><?php echo $result['title']; ?></a></h4><br>
-	<img src="admin/upload/<?php echo $result['image']; ?>" alt="post.img" >
+	<img src="admin/<?php echo $result['image']; ?>" alt="post.img" >
 	</div>
 <?php } ?>
 

@@ -7,7 +7,7 @@ body{ font-family: arial;font-size: 14px;line-height: 18px;color: 000; }
 }
 .logo{
 	float: left;
-	width: 180px;
+	width: 300px;
 	color: #4E8B14;
 	color: #ffffff;
 }
@@ -18,7 +18,7 @@ body{ font-family: arial;font-size: 14px;line-height: 18px;color: 000; }
 	margin-top: 16px;
 }
 .logo h1{
-	font-size: 16px;
+	font-size: 14px;
     margin-top: 25px;
     font-weight: bold;
     display: block;

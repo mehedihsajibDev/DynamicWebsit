@@ -45,6 +45,7 @@ if($_SERVER['REQUEST_METHOD']=='POST'){
 
 		$value=mysqli_fetch_array($results);
 		$row=mysqli_num_rows($results);
+		
 		if($row>0){
          Session::set("login",true);
          Session::set("username",$value['username']);

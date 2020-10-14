@@ -1,5 +1,14 @@
-﻿<?php include 'incl/headerone.php'; ?>
+<?php include 'incl/headerone.php'; ?>
  <?php include 'incl/sidebar.php'; ?>
+<?php
+if(!isset($_GET['catid']) ||$_GET['catid']==NULL){
+    header("Location:catlist.php");
+}else{
+    $id=$_GET['catid'];
+}
+
+?>
+
     <div class="grid_10">
 		
             <div class="box round first grid">
@@ -14,18 +23,27 @@ if($_SERVER['REQUEST_METHOD']=='POST'){
     if(empty($name)){
         echo "<span class='error'> Filled must not be empty </span>";
     }else{
-        $query="INSERT INTO  tbl_category(name) VALUES('$name')";
-        $result=$db->insert($query);
+        $query="UPDATE tbl_category set name='$name' WHERE id='$id' ";
+        $result=$db->update($query);
         if($result){
-          echo "<span class='success'>Insert Sucessfully </span>";
+          echo "<span class='success'>Update Sucessfully </span>";
         }else{
-          echo "<span class='error'> Not Inserted  </span>";
+          echo "<span class='error'> Update Not Inserted  </span>";
         }
     }
 }
 
 
 ?>
+
+      
+      <?php 
+         $query="SELECT *FROM tbl_category WHERE id='$id' ";
+         $result=$db->select($query);
+         if($result){
+        while ($cat=$result->fetch_assoc()) {
+       
+      ?>
                  <form action="" method="POST">
                     <table class="form">	
                      <tr>
@@ -34,7 +52,7 @@ if($_SERVER['REQUEST_METHOD']=='POST'){
                         <tr>
                             <td>
                                
-                                <input type="text" placeholder="Enter Category Name..." class="medium" name="name" />
+                                <input type="text" name="name" value="<?php  echo $cat['name'] ?>" />
 
                             </td>
 
@@ -46,6 +64,8 @@ if($_SERVER['REQUEST_METHOD']=='POST'){
                         </tr>
                     </table>
                     </form>
+               <?php } ?>
+               <?php } ?>
                 </div>
             </div>
         </div>

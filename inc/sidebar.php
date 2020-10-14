@@ -29,7 +29,7 @@
 		  ?>
 		<div class="popular clear">
 			<h3><?php echo $result['title']; ?></h3>
-			<img src="admin/upload/<?php echo $result['image']; ?>" alt="post.img" >
+			<img src="admin/<?php echo $result['image']; ?>" alt="post.img" >
 		<a href="populararticles.php?id=<?php echo $result['id']; ?>"><?php echo $fm->textshorten ($result['body'],100); ?></a>	
 		</div>
 
